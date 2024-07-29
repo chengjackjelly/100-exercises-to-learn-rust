@@ -1,9 +1,12 @@
 // TODO: Flesh out the `WeekTemperatures` struct and its method implementations to pass the tests.
 
+use std::ops::Index;
+
 pub struct WeekTemperatures {
     // TODO
+    week_temperatures : [Option<i32>;7],
 }
-
+#[derive(Debug)]
 pub enum Weekday {
     Monday,
     Tuesday,
@@ -14,17 +17,21 @@ pub enum Weekday {
     Sunday,
 }
 
+
+
 impl WeekTemperatures {
     pub fn new() -> Self {
-        todo!()
+        let week_temperatures:[Option<i32>;7]= [None;7];
+        Self{week_temperatures}
     }
 
     pub fn get_temperature(&self, day: Weekday) -> Option<i32> {
-        todo!()
+        let v:Option<i32>=self.week_temperatures[day as usize];
+        v
     }
 
     pub fn set_temperature(&mut self, day: Weekday, temperature: i32) {
-        todo!()
+        self.week_temperatures[day as usize]=Some(temperature);
     }
 }
 
